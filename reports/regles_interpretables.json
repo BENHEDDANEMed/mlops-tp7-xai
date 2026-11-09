@@ -1,0 +1,36 @@
+{
+  "coefficients": {
+    "anciennete": -2.5761636809307302,
+    "freq_24h": 2.7474679044850894,
+    "nuit": 2.229875494108268,
+    "log_montant": 4.934685498381487
+  },
+  "odds_multipliers": {
+    "anciennete": 0.92839860151853,
+    "freq_24h": 4.757676767155532,
+    "nuit": 318.7727260543287,
+    "log_montant": 32463.611429854955
+  },
+  "benali_tree_path": [
+    {
+      "feature": "montant",
+      "value": 1800.0,
+      "threshold": 1505.6799926757812,
+      "operator": ">"
+    },
+    {
+      "feature": "nuit",
+      "value": 1.0,
+      "threshold": 0.5,
+      "operator": ">"
+    },
+    {
+      "feature": "anciennete",
+      "value": 30.0,
+      "threshold": 64.0,
+      "operator": "<="
+    }
+  ],
+  "benali_leaf": 13,
+  "benali_tree_probability": 0.9830508474576272
+}

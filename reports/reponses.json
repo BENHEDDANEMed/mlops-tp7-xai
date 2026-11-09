@@ -1,0 +1,42 @@
+[
+  [
+    "1. Le registre et l’alias",
+    "models:/fraude@production retrouve la version validée sans figer son numéro dans le service. Ici, production désigne v1 (run c982aede0f434790b4c4bc90bd0740c7). Si l’alias passe à v2, les explications archivées restent celles de v1 : les tags modele_version, modele_run_id et l’empreinte des données le montrent. Il faut refaire les explications pour v2. Les scripts résolvent l’alias puis chargent la version exacte, et refusent un contexte différent pour éviter de mélanger des résultats."
+  ],
+  [
+    "2. Deux importances globales",
+    "Le classement MDI est montant, anciennete, freq_24h, nuit ; la permutation donne montant, freq_24h, anciennete, nuit. Les deux variables centrales de la permutation sont presque à égalité (0.2692 et 0.2685) par rapport aux écarts-types. La MDI cumule les diminutions d’impureté des séparations apprises, normalisées, et favorise souvent les variables offrant beaucoup de seuils possibles. La permutation mesure sur le test la perte de F1 après mélange : nuit est binaire mais sa permutation fait baisser le F1 de 0.1959, alors que sa MDI vaut 0.0926. Ces nombres n’ont ni la même échelle ni la même définition ; leur différence ne mesure pas un biais à elle seule."
+  ],
+  [
+    "3. Lire le beeswarm",
+    "Une faible ancienneté contribue généralement positivement au score de fraude (points bleus à droite), une forte ancienneté négativement (points rouges à gauche). Le beeswarm montre le sens, la dispersion et l’hétérogénéité des contributions pour chaque observation. La permutation ne fournit qu’une perte de score agrégée, sans dire si les petites ou grandes valeurs augmentent le risque. Le nuage du montant fait apparaître une transition autour de 1 000 MAD, variable selon le contexte ; ce n’est pas une règle unique de blocage."
+  ],
+  [
+    "4. Global et local",
+    "Il n’y a pas de contradiction : l’importance globale moyenne |SHAP| sur 400 transactions, alors que l’explication locale porte sur un cas. Pour Benali, nuit est première (+0.369682), suivie du montant (+0.366533), alors que nuit arrive troisième en moyenne. Efficacité : 0.115737 + (0.369682 + 0.366533 + 0.090302 - 0.018253) = 0.924000, soit la prédiction 0.924000. Les écarts résiduels sont de l’ordre de l’arrondi numérique."
+  ],
+  [
+    "5. La phrase pour la cliente",
+    "Votre paiement de 1 800 MAD a été retenu pour vérification principalement parce qu’il a été effectué de nuit pour un montant élevé ; ces éléments ont accru le risque estimé par notre système, sans prouver une fraude. Pour test_668, nuit=0 : l’absence de paiement nocturne fait diminuer le score par rapport à la référence de la forêt (SHAP nuit=-0,040959). Le montant, la faible ancienneté et la fréquence suffisent toutefois à produire une probabilité de 0,996. Il s’agit d’un effet prédictif relatif à la référence, sans interprétation causale."
+  ],
+  [
+    "6. La stabilité de LIME",
+    "Les intervalles par variable et par taille de voisinage sont donnés dans le tableau de stabilité. montant : signe stable à 500 voisins, stable à 2000; nuit : signe stable à 500 voisins, stable à 2000; anciennete : signe variable à 500 voisins, stable à 2000; freq_24h : signe stable à 500 voisins, variable à 2000. Avant de communiquer une explication, répéter les graines, augmenter le voisinage si nécessaire, vérifier la fidélité du substitut et retenir les causes robustes. Un coefficient proche de zéro ne doit pas être présenté comme une cause ferme. Cinq graines restent un contrôle limité, et stabilité ne garantit pas fidélité."
+  ],
+  [
+    "7. SHAP ou LIME",
+    "Les deux méthodes identifient montant et nuit comme facteurs majeurs pour Benali, avec un ordre susceptible de différer. SHAP attribue l’écart à une valeur de base du modèle ; LIME ajuste un substitut local sur des perturbations et des règles discrétisées. Leurs coefficients n’ont donc pas la même signification et ne se comparent pas directement. Le substitut LIME a ici R²=0.495, et sa prédiction locale vaut 0.687, contre 0,924 pour la forêt. Pour cette forêt, je retiens TreeExplainer : méthode adaptée aux arbres, contributions reproductibles pour une configuration fixe, avec efficacité vérifiée."
+  ],
+  [
+    "8. Le compromis",
+    "Pour une validation en vue du blocage de paiements, je retiendrais la logistique avec log10(montant) comme candidate prioritaire grâce à sa lisibilité : elle détecte 113/134 fraudes contre 114/134 pour la forêt, avec F1=0.8593 contre 0.8669, soit un écart de 0.0076. La matrice de confusion permet aussi de comparer les fausses alertes. Un seul test de 134 fraudes ne permet pas de conclure à une supériorité robuste : il faut une comparaison appariée, des validations temporelles, les coûts des erreurs et la calibration. Les données étant synthétiques, aucune mise en production réelle n’est justifiée par ce TP seul. Un arbre de profondeur 3 est lisible mais perd nettement en détection."
+  ],
+  [
+    "9. Reconstituer une décision",
+    "Le run XAI 1ccd984e41b94f87a354b287d5eb1269 conserve version/run du modèle, empreintes MD5 et SHA-256, découpage, indices SHAP, caractéristiques de Benali, contributions, graines, réglages LIME, bibliothèques, scripts et graphiques. Le tag explications_run relie la version à ce run. L’empreinte permet de vérifier un fichier mais ne le restaure pas : il faut conserver les données et les artefacts du TP2, ou une version DVC récupérable. Ce TP n’enregistre pas le journal immuable de la décision réellement servie (identifiant de transaction, horodatage, vecteur d’entrée et transformations, seuil/politique et version effectivement utilisée). Ce journal manque pour un audit opérationnel complet."
+  ],
+  [
+    "10. La Model Card",
+    "Usage exclu : le blocage définitif d’un compte sans revue humaine, car 15 paiements normaux sont signalés à tort sur le test (précision 0.8837). Limite : les 5000 transactions sont synthétiques, et 20 fraudes restent manquées ; ces résultats ne démontrent ni la performance sur de vraies transactions ni l’équité par sous-groupe. La carte doit donc documenter cette origine et imposer une validation adaptée avant un usage réel."
+  ]
+]

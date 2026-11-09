@@ -1,0 +1,22 @@
+|--- montant <= 1505.7
+|   |--- freq_24h <= 6.5
+|   |   |--- nuit <= 0.5
+|   |   |   |--- class: 0
+|   |   |--- nuit >  0.5
+|   |   |   |--- class: 0
+|   |--- freq_24h >  6.5
+|   |   |--- montant <= 371.9
+|   |   |   |--- class: 0
+|   |   |--- montant >  371.9
+|   |   |   |--- class: 0
+|--- montant >  1505.7
+|   |--- nuit <= 0.5
+|   |   |--- anciennete <= 69.5
+|   |   |   |--- class: 1
+|   |   |--- anciennete >  69.5
+|   |   |   |--- class: 0
+|   |--- nuit >  0.5
+|   |   |--- anciennete <= 64.0
+|   |   |   |--- class: 1
+|   |   |--- anciennete >  64.0
+|   |   |   |--- class: 1

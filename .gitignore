@@ -5,3 +5,7 @@ data/
 reports/mlflow-serveur*.log
 .env
 mlartifacts/
+
+# Rapports conserves uniquement sur le PC
+/BENHEDDANE_Mohamed_5IASD_G8.pdf
+/rapport_reponses.md

@@ -1,0 +1,6 @@
+Valeur de base : 0.11573653333333335
+montant       0.1157
+anciennete    0.0576
+nuit          0.0571
+freq_24h      0.0556
+Erreur maximale d’additivité : 7.405187574249794e-14

@@ -1,0 +1,16 @@
+{
+  "statut": "VALIDE",
+  "run_xai": "1ccd984e41b94f87a354b287d5eb1269",
+  "modele_version": "1",
+  "f1": 0.8669201520912547,
+  "original_tp2_inchange": true,
+  "donnees_identiques_tp2": true,
+  "shap_additivite": true,
+  "lime_10_experiences": true,
+  "model_card_attachee": true,
+  "limites_rendu": [
+    "Capture HTML LIME à ajouter ; équivalent PNG inclus",
+    "Publication GitHub et envoi e-mail non effectués",
+    "Activités bonus C1/C2 non réalisées"
+  ]
+}

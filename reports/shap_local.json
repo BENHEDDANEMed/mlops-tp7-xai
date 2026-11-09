@@ -1,0 +1,38 @@
+{
+  "benali": {
+    "features": {
+      "montant": 1800.0,
+      "anciennete": 30.0,
+      "freq_24h": 4.0,
+      "nuit": 1.0
+    },
+    "base_value": 0.11573653333333335,
+    "contributions": {
+      "montant": 0.3665329048594907,
+      "anciennete": 0.09030186630901858,
+      "freq_24h": -0.018252833383607125,
+      "nuit": 0.3696815288817351
+    },
+    "base_plus_sum": 0.9239999999999706,
+    "probability": 0.924,
+    "true_label": null
+  },
+  "test_668": {
+    "features": {
+      "montant": 2661.92,
+      "anciennete": 11.0,
+      "freq_24h": 6.0,
+      "nuit": 0.0
+    },
+    "base_value": 0.11573653333333335,
+    "contributions": {
+      "montant": 0.5220555094448392,
+      "anciennete": 0.218466604431761,
+      "freq_24h": 0.18070002892961104,
+      "nuit": -0.04095867613956824
+    },
+    "base_plus_sum": 0.9959999999999763,
+    "probability": 0.996,
+    "true_label": 1
+  }
+}

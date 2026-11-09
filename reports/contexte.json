@@ -1,0 +1,11 @@
+{
+  "modele": "fraude",
+  "alias": "production",
+  "modele_version": "1",
+  "modele_run_id": "c982aede0f434790b4c4bc90bd0740c7",
+  "donnees": "data/transactions.csv",
+  "donnees_md5": "cf9f6f86c141e7df32c61715c493483f",
+  "donnees_sha256": "cf81ca30a17e6db0dc69bbe89d2b7f97710dd0dba3feaad1b35daacb16deb997",
+  "test_size": 0.25,
+  "split_random_state": 42
+}

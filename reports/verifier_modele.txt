@@ -1,0 +1,14 @@
+Modèle : fraude v1 | alias production | run c982aede0f434790b4c4bc90bd0740c7
+f1                  : 0.8669201520912547
+precision           : 0.8837209302325582
+recall              : 0.8507462686567164
+auc                 : 0.9871910608249077
+confusion           : [[1101, 15], [20, 114]]
+f1_run              : 0.8669201520912547
+benali_probability  : 0.924
+famille             : RandomForestClassifier
+n_estimators        : 500
+max_depth           : 16
+test_n              : 1250
+test_fraudes        : 134
+F1 conforme au run du TP2.

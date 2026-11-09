@@ -1,0 +1,33 @@
+foret fraude@production                 F1 = 0.8669 | fraudes : 114 / 134
+logistique, montant brut                F1 = 0.7407 | fraudes : 90 / 134
+logistique, log10(montant)              F1 = 0.8593 | fraudes : 113 / 134
+Coefficients standardisés : {'anciennete': -2.5761636809307302, 'freq_24h': 2.7474679044850894, 'nuit': 2.229875494108268, 'log_montant': 4.934685498381487}
+Multiplicateurs de cote par unité : {'anciennete': 0.92839860151853, 'freq_24h': 4.757676767155532, 'nuit': 318.7727260543287, 'log_montant': 32463.611429854955}
+arbre profondeur 2 (4 feuilles)         F1 = 0.2293 | fraudes : 18 / 134
+arbre profondeur 3 (8 feuilles)         F1 = 0.5737 | fraudes : 72 / 134
+arbre profondeur 6 (50 feuilles)        F1 = 0.7510 | fraudes : 95 / 134
+arbre profondeur None (206 feuilles)    F1 = 0.7556 | fraudes : 102 / 134
+|--- montant <= 1505.7
+|   |--- freq_24h <= 6.5
+|   |   |--- nuit <= 0.5
+|   |   |   |--- class: 0
+|   |   |--- nuit >  0.5
+|   |   |   |--- class: 0
+|   |--- freq_24h >  6.5
+|   |   |--- montant <= 371.9
+|   |   |   |--- class: 0
+|   |   |--- montant >  371.9
+|   |   |   |--- class: 0
+|--- montant >  1505.7
+|   |--- nuit <= 0.5
+|   |   |--- anciennete <= 69.5
+|   |   |   |--- class: 1
+|   |   |--- anciennete >  69.5
+|   |   |   |--- class: 0
+|   |--- nuit >  0.5
+|   |   |--- anciennete <= 64.0
+|   |   |   |--- class: 1
+|   |   |--- anciennete >  64.0
+|   |   |   |--- class: 1
+
+Chemin Benali : [{'feature': 'montant', 'value': 1800.0, 'threshold': 1505.6799926757812, 'operator': '>'}, {'feature': 'nuit', 'value': 1.0, 'threshold': 0.5, 'operator': '>'}, {'feature': 'anciennete', 'value': 30.0, 'threshold': 64.0, 'operator': '<='}] | feuille 13

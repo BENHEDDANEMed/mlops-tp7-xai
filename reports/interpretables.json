@@ -1,0 +1,114 @@
+{
+  "foret fraude@production": {
+    "f1": 0.8669201520912547,
+    "precision": 0.8837209302325582,
+    "recall": 0.8507462686567164,
+    "confusion": [
+      [
+        1101,
+        15
+      ],
+      [
+        20,
+        114
+      ]
+    ],
+    "fraudes_detectees": 114
+  },
+  "logistique, montant brut": {
+    "f1": 0.7407407407407407,
+    "precision": 0.8256880733944955,
+    "recall": 0.6716417910447762,
+    "confusion": [
+      [
+        1097,
+        19
+      ],
+      [
+        44,
+        90
+      ]
+    ],
+    "fraudes_detectees": 90
+  },
+  "logistique, log10(montant)": {
+    "f1": 0.8593155893536122,
+    "precision": 0.875968992248062,
+    "recall": 0.8432835820895522,
+    "confusion": [
+      [
+        1100,
+        16
+      ],
+      [
+        21,
+        113
+      ]
+    ],
+    "fraudes_detectees": 113
+  },
+  "arbre profondeur 2 (4 feuilles)": {
+    "f1": 0.22929936305732485,
+    "precision": 0.782608695652174,
+    "recall": 0.13432835820895522,
+    "confusion": [
+      [
+        1111,
+        5
+      ],
+      [
+        116,
+        18
+      ]
+    ],
+    "fraudes_detectees": 18
+  },
+  "arbre profondeur 3 (8 feuilles)": {
+    "f1": 0.5737051792828686,
+    "precision": 0.6153846153846154,
+    "recall": 0.5373134328358209,
+    "confusion": [
+      [
+        1071,
+        45
+      ],
+      [
+        62,
+        72
+      ]
+    ],
+    "fraudes_detectees": 72
+  },
+  "arbre profondeur 6 (50 feuilles)": {
+    "f1": 0.7509881422924901,
+    "precision": 0.7983193277310925,
+    "recall": 0.7089552238805971,
+    "confusion": [
+      [
+        1092,
+        24
+      ],
+      [
+        39,
+        95
+      ]
+    ],
+    "fraudes_detectees": 95
+  },
+  "arbre profondeur None (206 feuilles)": {
+    "f1": 0.7555555555555555,
+    "precision": 0.75,
+    "recall": 0.7611940298507462,
+    "confusion": [
+      [
+        1082,
+        34
+      ],
+      [
+        32,
+        102
+      ]
+    ],
+    "fraudes_detectees": 102
+  }
+}
