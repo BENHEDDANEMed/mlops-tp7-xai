@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+data/
+*.db
+reports/mlflow-serveur*.log
+.env
+mlartifacts/
